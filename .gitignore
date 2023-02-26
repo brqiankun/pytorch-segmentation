@@ -114,3 +114,10 @@ trained_models/
 .idea/
 __MACOSX/
 
+test_python/
+
+#trained model
+*.pth
+
+#test image
+image_test/
