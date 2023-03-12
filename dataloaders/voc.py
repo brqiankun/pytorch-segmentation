@@ -24,6 +24,9 @@ class VOCDataset(BaseDataSet):
 
     def _set_files(self):
         self.root = os.path.join(self.root, 'VOCdevkit/VOC2012')
+        if os.path.isdir(self.root) != True:
+            raise RuntimeError("the voc dataset path is not exist")
+        
         self.image_dir = os.path.join(self.root, 'JPEGImages')
         self.label_dir = os.path.join(self.root, 'SegmentationClass')
 

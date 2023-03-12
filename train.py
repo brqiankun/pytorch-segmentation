@@ -25,9 +25,11 @@ def main(config, resume):
     # MODEL
     model = get_instance(models, 'arch', config, train_loader.dataset.num_classes)
     print(f'\n{model}\n')
+    print("model load successfully")
 
     # LOSS
     loss = getattr(losses, config['loss'])(ignore_index = config['ignore_index'])
+    print("loss load successfully")
 
     # TRAINING
     trainer = Trainer(

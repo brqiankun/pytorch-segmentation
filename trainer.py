@@ -49,7 +49,7 @@ class Trainer(BaseTrainer):
         for batch_idx, (data, target) in enumerate(tbar):
             self.data_time.update(time.time() - tic)
             #data, target = data.to(self.device), target.to(self.device)
-            self.lr_scheduler.step(epoch=epoch-1)
+            #self.lr_scheduler.step(epoch=epoch-1)  #学习率调整放到optimizer.step()后
 
             # LOSS & OPTIMIZE
             self.optimizer.zero_grad()
@@ -69,6 +69,7 @@ class Trainer(BaseTrainer):
                 loss = loss.mean()
             loss.backward()
             self.optimizer.step()
+            self.lr_scheduler.step(epoch=epoch-1)   #学习率调整放到optimizer.step()后
             self.total_loss.update(loss.item())
 
             # measure elapsed time

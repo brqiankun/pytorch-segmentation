@@ -114,10 +114,10 @@ trained_models/
 .idea/
 __MACOSX/
 
-test_python/
-
 #trained model
 *.pth
+*.onnx
 
 #test image
 image_test/
+output.txt
