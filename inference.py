@@ -111,6 +111,7 @@ def main():
 
     # Model
     model = getattr(models, config['arch']['type'])(num_classes, **config['arch']['args'])
+    print("model load successfully: {}\n".format(model))
     availble_gpus = list(range(torch.cuda.device_count()))
     device = torch.device('cuda:0' if len(availble_gpus) > 0 else 'cpu')
 
