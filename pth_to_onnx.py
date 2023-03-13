@@ -85,8 +85,8 @@ def main():
         output = model(input.to(device))
         # torch.nn.DataParallel is not supported by ONNX exporter, please use 'attribute' module 
         # to unwrap model from torch.nn.DataParallel. Try torch.onnx.export(model.module, ...)
-        torch.onnx.export(model.module, input.to(device), "{}.onnx".format(model_name), export_params=True, opset_version=11, \
-                          do_constant_folding=True, input_names=['input'], output_names=['output'])
+        # torch.onnx.export(model.module, input.to(device), "{}.onnx".format(model_name), export_params=True, opset_version=11, \
+        #                   do_constant_folding=True, input_names=['input'], output_names=['output'])
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Inference')

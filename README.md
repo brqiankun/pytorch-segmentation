@@ -85,6 +85,8 @@ All of the data augmentations are implemented using OpenCV in `\base\base_datase
 ## Training
 To train a model, first download the dataset to be used to train the model, then choose the desired architecture, add the correct path to the dataset and set the desired hyperparameters (the config file is detailed below), then simply run:
 
+
+batch_size 必须大于等于n_gpu 否则会报错，比如n_gpu = 6, train_batch_size = 2时报错
 ```bash
 python train.py --config config.json
 ```
@@ -105,6 +107,8 @@ For inference, we need a PyTorch trained model, the images we'd like to segment 
 
 ```bash
 python inference.py --config config.json --model best_model.pth --images images_folder
+
+python inference.py --config config.json --model PSPnet.pth --images image_test/
 ```
 
 The predictions will be saved as `.png` images using the default palette in the passed fodler name, if not, `outputs\` is used, for Pacal VOC the default palette is:
@@ -248,3 +252,10 @@ Config files are in `.json` format:
 - [PyTorch-Encoding](https://github.com/zhanghang1989/PyTorch-Encoding)
 - [Pytorch-Template](https://github.com/victoresque/pytorch-template/blob/master/README.m)
 - [Synchronized-BatchNorm-PyTorch](https://github.com/vacancy/Synchronized-BatchNorm-PyTorch)
+
+
+## command
+
+```
+
+```

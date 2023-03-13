@@ -1,6 +1,6 @@
 {
     "name": "PSPNet",
-    "n_gpu": 1,
+    "n_gpu": 4,
     "use_synch_bn": false,
 
     "arch": {
@@ -16,7 +16,7 @@
         "type": "VOC",
         "args":{
             "data_dir": "data",
-            "batch_size": 2,
+            "batch_size": 32,
             "base_size": 400,
             "crop_size": 380,
             "augment": true,
@@ -34,7 +34,7 @@
         "type": "VOC",
         "args":{
             "data_dir": "data",
-            "batch_size": 2,
+            "batch_size": 16,
             "crop_size": 480,
             "val": true,
             "split": "val",
