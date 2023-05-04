@@ -93,6 +93,9 @@ def save_images(image, mask, output_path, image_file, palette):
     # mask_img.save(os.path.join(output_path, image_file+'.png'))
 
 def main():
+    import os
+    os.environ["CUDA_VISIBLE_DEVICES"] = '2'
+    os.environ["CUDA_LAUNCH_BLOCKING"] = '1'
     args = parse_arguments()
     config = json.load(open(args.config))
 
